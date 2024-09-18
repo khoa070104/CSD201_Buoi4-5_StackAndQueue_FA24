@@ -1,5 +1,7 @@
 package Stack;
 
+import java.io.EOFException;
+
 public class MyStack {
     class Node{
         int data;
@@ -28,4 +30,16 @@ public class MyStack {
         length++;
     }
     // pop(): remove top element and return data of removed element
+    public Integer pop(){
+        if(isEmpty()){
+            //throw new RuntimeException("Stack is empty");
+            return null;
+        }
+        int result = top.data;
+        top = top.next;
+        length--;
+
+        return result;
+    }
+
 }

@@ -41,6 +41,18 @@ public class MyQueue {
         rear = newNode;
         length++;
     }
+
+    public Integer dequeue(){ //9 8 7 6
+        if(isEmpty()){
+            //throw new RuntimeException("Stack is empty");
+            return null;
+        }
+        int result = front.data;
+        front = front.next;
+        if(front == null)
+            rear = null;
+        return result;
+    }
     // dequeue(): remove front element and return data of removed element
 // BTVN 1: 2 , 19 -> LeetCode
 // BTVN 2: Implement Stack and Queue
@@ -51,7 +63,13 @@ public class MyQueue {
         queue.enqueue(3);
         queue.enqueue(4);
         queue.enqueue(5);
-        System.out.println("Queue length: " + queue.getLength());
+
+        queue.dequeue();
+        queue.dequeue();
+         queue.dequeue();
+        queue.dequeue();
+        int res = queue.dequeue();
+        System.out.println(res);
     }
 
 }
